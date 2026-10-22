@@ -17,7 +17,16 @@ Este repositorio contiene el material utilizado en las prácticas de la asignatu
 El objetivo de la asignatura es introducir en el desarrollo de aplicaciones para sistemas informáticos industriales, haciendo especial énfasis en el uso del lenguaje C y del sistema operativo Linux.
 
 ---
+## 🎮 Práctica 1: Movimiento
 
+En esta práctica se ha trabajado con las herramientas de desarrollo en Linux y el control de versiones con Git.
+
+Se ha implementado:
+- El movimiento de las raquetas mediante el teclado.
+- La detención de las raquetas al soltar las teclas.
+- El movimiento de la pelota según su velocidad.
+
+El proyecto se compila utilizando CMake y Make.
 ## 📚 Wiki
 
 La documentación detallada de cada una de las prácticas se encuentra en la Wiki del repositorio.

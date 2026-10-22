@@ -31,7 +31,7 @@ void CMundo::InitGL()
 	glEnable(GL_LIGHTING);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_COLOR_MATERIAL);
-	
+
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective( 40.0, 800/600.0f, 0.1, 150);
 }
@@ -59,9 +59,9 @@ void print(char *mensaje, int x, int y, float r, float g, float b)
 	glColor3f(r,g,b);
 	glRasterPos3f(x, glutGet(GLUT_WINDOW_HEIGHT)-18-y, 0);
 	int len = strlen (mensaje );
-	for (int i = 0; i < len; i++) 
+	for (int i = 0; i < len; i++)
 		glutBitmapCharacter (GLUT_BITMAP_HELVETICA_18, mensaje[i] );
-		
+
 	glMatrixMode(GL_TEXTURE);
 	glPopMatrix();
 
@@ -75,16 +75,15 @@ void print(char *mensaje, int x, int y, float r, float g, float b)
 }
 void CMundo::OnDraw()
 {
-	//Borrado de la pantalla	
-   	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+	//Borrado de la pantalla
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//Para definir el punto de vista
-	glMatrixMode(GL_MODELVIEW);	
+	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
+
 	gluLookAt(0.0, 0, 17,  // posicion del ojo
-		0.0, 0.0, 0.0,      // hacia que punto mira  (0,0,0) 
-		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
+		0.0, 0.0, 0.0,      // hacia que punto mira  (0,0,0)
+		0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)
 
 	/////////////////
 	///////////
@@ -114,7 +113,7 @@ void CMundo::OnDraw()
 }
 
 void CMundo::OnTimer(int value)
-{	
+{
 	jugador1.Mueve(0.025f);
 	jugador2.Mueve(0.025f);
 	esfera.Mueve(0.025f);
@@ -161,7 +160,21 @@ void CMundo::OnKeyboardDown(unsigned char key, int x, int y)
 
 	}
 }
+void CMundo::OnKeyboardUp(unsigned char key, int x, int y)
+{
+    switch(key)
+    {
+        case 's':
+        case 'w':
+            jugador1.velocidad.y = 0;
+            break;
 
+        case 'l':
+        case 'o':
+            jugador2.velocidad.y = 0;
+            break;
+    }
+}
 void CMundo::Init()
 {
 	Plano p;

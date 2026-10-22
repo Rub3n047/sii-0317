@@ -15,17 +15,18 @@
 #include "Esfera.h"
 #include "Raqueta.h"
 
-class CMundo  
+class CMundo
 {
 public:
 	void Init();
 	CMundo();
-	virtual ~CMundo();	
-	
-	void InitGL();	
+	virtual ~CMundo();
+
+	void InitGL();
 	void OnKeyboardDown(unsigned char key, int x, int y);
+void OnKeyboardUp(unsigned char key, int x, int y);
 	void OnTimer(int value);
-	void OnDraw();	
+	void OnDraw();
 
 	Esfera esfera;
 	std::vector<Plano> paredes;
